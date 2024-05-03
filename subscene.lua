@@ -166,6 +166,7 @@ allowed = function(url, parenturl)
   if not string.match(url, "^https?://[^/]*subscene%.com/")
     and not string.match(url, "^https?://comments%.jeded%.com/") then
     discover_item(discovered_outlinks, url)
+    return false
   end
 
   for _, pattern in pairs({
