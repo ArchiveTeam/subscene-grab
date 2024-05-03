@@ -151,6 +151,8 @@ allowed = function(url, parenturl)
     if match then
       if type_ == "subtitle" then
         match = string.gsub(match, "/", ":")
+        local new_item_temp = "group:" .. string.match(match, "^([^:]+)")
+        discover_item(discovered_items, new_item_temp)
       end
       local new_item = type_ .. ":" .. match
       if new_item ~= item_name then
