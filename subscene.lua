@@ -390,6 +390,10 @@ wget.callbacks.get_urls = function(file, url, is_css, iri)
   if allowed(url)
     and status_code < 300 then
     html = read_file(file)
+    if string.match(url, "^https?://subscene%.com/subtitles/[^/]*%-text/[0-9A-Za-z%-_]+$")
+      and not string.match(html, "<html>") then
+      return urls
+    end
     if string.match(html, "<html>") and not string.match(html, "</html>") then
       error()
     end
