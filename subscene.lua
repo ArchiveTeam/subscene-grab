@@ -390,6 +390,9 @@ wget.callbacks.get_urls = function(file, url, is_css, iri)
   if allowed(url)
     and status_code < 300 then
     html = read_file(file)
+    if string.match(html, "<html>") and not string.match(html, "</html>") then
+      error()
+    end
     if string.match(url, "/comments/view/") then
       check("https://comments.jeded.com/comments/" .. string.match(url, "/comments/view/([0-9]+)"))
     end
