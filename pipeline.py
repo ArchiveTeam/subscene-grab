@@ -72,7 +72,7 @@ if not WGET_AT:
 #
 # Update this each time you make a non-cosmetic change.
 # It will be added to the WARC files and reported to the tracker.
-VERSION = '20240503.02'
+VERSION = '20240503.03'
 USER_AGENT = 'Mozilla/5.0 (X11; Linux i686; rv:124.0) Gecko/20100101 Firefox/124.0'
 TRACKER_ID = 'subscene'
 TRACKER_HOST = 'legacy-api.arpa.li'
@@ -255,7 +255,7 @@ class WgetArgs(object):
             '--resolvconf-file', '/dev/null',
             '--dns-servers', '9.9.9.10,149.112.112.10,2620:fe::10,2620:fe::fe:10',
             '--reject-reserved-subnets',
-            '--prefer-family', ('IPv4' if 'PREFER_IPV4' in os.environ else 'IPv6'),
+            #'--prefer-family', ('IPv4' if 'PREFER_IPV4' in os.environ else 'IPv6'),
             '--content-on-error',
             '--lua-script', 'subscene.lua',
             '-o', ItemInterpolation('%(item_dir)s/wget.log'),
